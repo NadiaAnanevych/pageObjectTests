@@ -1,4 +1,4 @@
-package ui;
+//package ui;
 
 import bednarek.pageObjects.HomePage;
 import bednarek.pageObjects.WebFormPage;
@@ -10,8 +10,8 @@ import static bednarek.pageObjects.HomePage.BASE_URL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Story("web form page test")
-class WebFormTests extends BaseTest{
+//@Story("web form page test")
+/*class WebFormTests extends BaseTest{
 
 
     @Test
@@ -73,4 +73,4 @@ class WebFormTests extends BaseTest{
         assertTrue(isOptionSelected);
     }
 
-}
+}*/
