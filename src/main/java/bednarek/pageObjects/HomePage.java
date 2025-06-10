@@ -3,6 +3,8 @@ package bednarek.pageObjects;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class HomePage extends BasePage {
     public static final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/";
@@ -26,7 +28,13 @@ public class HomePage extends BasePage {
 
     @Step("Open web-form page")
     public WebFormPage openWebFormPage() {
-        driver.findElement(By.linkText("Web form")).click();
+        Actions  actions;
+        actions = new Actions(driver);
+        WebElement webFormLink = driver.findElement(By.linkText("Web form"));
+        actions.moveToElement(webFormLink).perform();
+        webFormLink.click();
+
+        //driver.findElement(By.linkText("Web form")).click();
         return new WebFormPage(driver);
     }
 
