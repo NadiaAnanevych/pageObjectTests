@@ -26,15 +26,9 @@ public class HomePage extends BasePage {
 
     }
 
-    @Step("Open web-form page")
+    @Step("Open web form page")
     public WebFormPage openWebFormPage() {
-        Actions  actions;
-        actions = new Actions(driver);
-        WebElement webFormLink = driver.findElement(By.linkText("Web form"));
-        actions.moveToElement(webFormLink).perform();
-        webFormLink.click();
-
-        //driver.findElement(By.linkText("Web form")).click();
+        driver.findElement(By.linkText("Web form")).click();
         return new WebFormPage(driver);
     }
 

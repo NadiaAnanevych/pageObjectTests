@@ -15,10 +15,9 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void openWebFormTest() throws InterruptedException {
+    void openWebFormTest() {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
-        Thread.sleep(2000);
         String currentUrl = webFormPage.getCurrentUrl();
         String title = webFormPage.getTitle();
         String webFormUrl = webFormPage.getUrl();
@@ -41,11 +40,10 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void sendTextTest() throws InterruptedException {
+    void sendTextTest() {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
         webFormPage.sendText();
-        Thread.sleep(2000);
         String textInput = webFormPage.getTextInput();
 
         assertEquals("my text",textInput);
@@ -53,10 +51,9 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void disabledFieldTest() throws InterruptedException {
+    void disabledFieldTest() {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
-        Thread.sleep(2000);
         String textForDisabledInput = "test text";
         WebElement disableField = webFormPage.getDisableInput();
         assertFalse(disableField.isEnabled());
@@ -66,10 +63,9 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void dropdownSelectTest() throws InterruptedException {
+    void dropdownSelectTest() {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
-        Thread.sleep(2000);
         String selectedOption = webFormPage.chooseOptionFromDropDownSelect("2");
         boolean isOptionSelected = webFormPage.isFirstOptionSelected("2");
 
