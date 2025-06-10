@@ -15,9 +15,10 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void openWebFormTest(){
+    void openWebFormTest() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
+        Thread.sleep(2000);
         String currentUrl = webFormPage.getCurrentUrl();
         String title = webFormPage.getTitle();
         String webFormUrl = webFormPage.getUrl();
@@ -52,12 +53,12 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void disabledFieldTest() {
+    void disabledFieldTest() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
+        Thread.sleep(2000);
         String textForDisabledInput = "test text";
         WebElement disableField = webFormPage.getDisableInput();
-
         assertFalse(disableField.isEnabled());
         Exception throwm = assertThrows(ElementNotInteractableException.class, () -> webFormPage.sendToDisableInput(textForDisabledInput));
         assertThat(throwm.getMessage()).contains("element not interactable");
@@ -65,9 +66,10 @@ class WebFormTests extends BaseTest{
 
 
     @Test
-    void dropdownSelectTest() {
+    void dropdownSelectTest() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         WebFormPage webFormPage = homePage.openWebFormPage();
+        Thread.sleep(2000);
         String selectedOption = webFormPage.chooseOptionFromDropDownSelect("2");
         boolean isOptionSelected = webFormPage.isFirstOptionSelected("2");
 
