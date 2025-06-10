@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git url: 'https://github.com/NadiaAnanevych/pageObjectTests.git'
+        git branch: 'main',  url: 'https://github.com/NadiaAnanevych/pageObjectTests.git'
       }
     }
 
